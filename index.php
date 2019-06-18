@@ -6,13 +6,16 @@
 		</head>
 		<body>
 <?php
-    try {
-	$pdo = new PDO("mysql:host=localhost;dbname=mabasedb", "Scrow", "Scrow");
-
-    } catch (PDOException $e) {
-	print "Error connnection failed : ". $e->getMessage() . "<br/>";
-	die();
-    }
+	$dsn = "mysql:host=localhost;dbname=mabasedb"; 
+	$username = "Scrow";
+	$password = "Scrow";
+        
+	try {
+	    $pdo = new PDO($dsn, $username, $password);
+        } catch (PDOException $e) {
+	    print "Error connection failed : ". $e->getMessage() . "<br/>";
+	    die();
+        }
 
 	if(isset($_POST['pseudo']) && isset($_POST['passwd'])) {
 		$pseudo = $_POST["pseudo"];
@@ -27,14 +30,17 @@
 			header("Location: profile.php?pseudo=".$pseudo);
 		}
 	} 
-    if(isset($_POST['newpseudo']) && isset($_POST['newpasswd'])) {
+     
+     	if(isset($_POST['newpseudo']) && isset($_POST['newpasswd'])) {
 	    echo "ok";
+	    $id=1;
 	    $valeurs = ['pseudo' => $_POST["newpseudo"], 'passwd' => $_POST["newpasswd"]];
-		$req = "INSERT INTO users (pseudo, passwd) VALUES (:pseudo, :passwd)";
+		$req = "INSERT INTO users (id, pseudo, passwd) VALUES (:id, :pseudo, :passwd)";
 		$req = $pdo->prepare($req);
 		$req->execute($valeurs);
 	} 
 ?>
+
 		<h1>Réseau social</h1>
 		<p>Connectez vous</p>
 		<form method="post" action="index.php">
