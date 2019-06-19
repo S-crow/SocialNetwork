@@ -7,7 +7,7 @@
 		<p>Page de profil</p>
 		<?php
 		//initialisation PDO
-		$pdo = new PDO("mysql:host=localhost:8889;dbname=mydb", "root", "root");
+		$pdo = new PDO("mysql:host=localhost;dbname=mabasedb", "Scrow", "Scrow");
 		//insertion du message 
 		if(isset($_POST["newmessage"])) {
 		    $valeurs = ["pseudo" => $_COOKIE["user"], "message" => $_POST["newmessage"]];

@@ -1,6 +1,6 @@
 		<html>
 		<head>
-			<title>Sl-hack</title>
+			<title>Social</title>
 			<link rel="stylesheet" href="style.css">
 			<meta http-equiv="Content-Type" content="text/html, charset=UTF-8" />
 		</head>
@@ -16,7 +16,7 @@
 	    print "Error connection failed : ". $e->getMessage() . "<br/>";
 	    die();
         }
-
+	#Sign in
 	if(isset($_POST['pseudo']) && isset($_POST['passwd'])) {
 		$pseudo = $_POST["pseudo"];
 		$req = "SELECT passwd from users where pseudo='".$pseudo."'";
@@ -30,12 +30,10 @@
 			header("Location: profile.php?pseudo=".$pseudo);
 		}
 	} 
-     
+     	#Sign up
      	if(isset($_POST['newpseudo']) && isset($_POST['newpasswd'])) {
-	    echo "ok";
-	    $id=1;
-	    $valeurs = ['pseudo' => $_POST["newpseudo"], 'passwd' => $_POST["newpasswd"]];
-		$req = "INSERT INTO users (id, pseudo, passwd) VALUES (:id, :pseudo, :passwd)";
+	    $valeurs = ["pseudo" => $_POST["newpseudo"], "passwd" => $_POST["newpasswd"]];
+		$req = "INSERT INTO users (pseudo, passwd) VALUES (:pseudo, :passwd)";
 		$req = $pdo->prepare($req);
 		$req->execute($valeurs);
 	} 

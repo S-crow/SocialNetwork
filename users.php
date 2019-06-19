@@ -6,7 +6,7 @@
 			<body>
 			<p>Liste des différents membres</p>
 			<?php
-				$pdo = new PDO("mysql:host=localhost:8889;dbname=mydb", "root", "root");
+				$pdo = new PDO("mysql:host=localhost;dbname=mabasedb", "Scrow", "Scrow");
 				$req = $pdo->query("select * from users");
 				
 				while ($res = $req->fetch()) {
