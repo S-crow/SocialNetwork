@@ -14,3 +14,8 @@ create a new user like that :
 /etc/init.d/apache2 restart  
 /etc/init.d/mysql restart  
 
+issue to insert data on database :
+
+Inline-style: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
