@@ -15,8 +15,8 @@ create a new user like that :
 /etc/init.d/apache2 restart  
 /etc/init.d/mysql restart  
 
--insert data on database :
-add "none" for id attribute and tick the AI case (to automatic increment)
-phpmyadmin: 
+-insert data on database :  
+add "none" for id attribute and tick the AI case (to automatic increment)  
+
 ![alt text](https://github.com/S-crow/SocialNetwork/blob/master/phpmyadmin.png "PhpMyAdmin")
 
